@@ -1,0 +1,91 @@
+syntax="proto3";
+
+option go_package="./product_service";
+package genproto;
+
+service ProductService {
+    rpc CreateProduct(CreateProductRequest) returns (Product) {}
+    rpc GetProductList (GetProductListRequest) returns (GetProductListResponse){}
+    rpc GetProductById (GetProductByIdRequest) returns (GetProductByIdResponse){}
+    rpc UpdateProduct (UpdateProductRequest) returns (UpdateProductResponse){}
+    rpc DeleteProduct (DeleteProductRequest) returns (DeleteProductResponse){}
+}
+
+message Product {
+    string id=1;  
+    string title=2;
+    string desc=3;
+    int32 quantity=4;
+    int32 price=5;
+    string category_id=6;
+    string created_at=7; 
+    string updated_at=8; 
+}
+
+message CreateProductRequest {
+    string title=2;
+    string desc=3;
+    int32 quantity=4;
+    int32 price=5;
+    string category_id=6;
+}
+
+message GetProductListRequest{
+    int32 limit=1;
+    int32 offset=2;
+    string search=3;
+
+}
+
+message GetProductListResponse{
+    repeated Product products=1;
+}
+
+
+
+message GetProductByIdRequest{
+    string id=1;
+}
+message GetProductByIdResponse{
+    message Category {
+        string id=1;  
+        string title=2;
+        string created_at=3; 
+        string updated_at=4; 
+    }
+    string id=1;  
+    string title=2;
+    string desc=3;
+    int32 quantity=4;
+    int32 price=5;
+    Category category=6;
+    string created_at=7; 
+    string updated_at=8; 
+
+}
+
+message UpdateProductRequest{
+    string id=1;  
+    string title=2;
+    string desc=3;
+    int32 quantity=4;
+    int32 price=5;
+}
+
+message UpdateProductResponse{
+    int32 rows_affected=1;
+}
+
+message DeleteProductRequest{
+    string id=1;
+}
+
+message DeleteProductResponse{
+    int32 rows_affected=1;
+}
+
+
+
+
+
+

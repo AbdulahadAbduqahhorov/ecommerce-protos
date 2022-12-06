@@ -4,7 +4,7 @@ option go_package="./product_service";
 package genproto;
 
 service ProductService {
-    rpc CreateProduct(CreateProductRequest) returns (Product) {}
+    rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
     rpc GetProductList (GetProductListRequest) returns (GetProductListResponse){}
     rpc GetProductById (GetProductByIdRequest) returns (GetProductByIdResponse){}
     rpc UpdateProduct (UpdateProductRequest) returns (UpdateProductResponse){}
@@ -23,11 +23,14 @@ message Product {
 }
 
 message CreateProductRequest {
-    string title=2;
-    string desc=3;
-    int32 quantity=4;
-    int32 price=5;
-    string category_id=6;
+    string title=1;
+    string desc=2;
+    int32 quantity=3;
+    int32 price=4;
+    string category_id=5;
+}
+message CreateProductResponse {
+    string id=1;  
 }
 
 message GetProductListRequest{

@@ -7,8 +7,8 @@ service ProductService {
     rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
     rpc GetProductList (GetProductListRequest) returns (GetProductListResponse){}
     rpc GetProductById (GetProductByIdRequest) returns (GetProductByIdResponse){}
-    rpc UpdateProduct (UpdateProductRequest) returns (UpdateProductResponse){}
-    rpc DeleteProduct (DeleteProductRequest) returns (DeleteProductResponse){}
+    rpc UpdateProduct (UpdateProductRequest) returns (Product){}
+    rpc DeleteProduct (DeleteProductRequest) returns (Empty){}
 }
 
 message Product {
@@ -75,18 +75,11 @@ message UpdateProductRequest{
     int32 price=5;
 }
 
-message UpdateProductResponse{
-    int32 rows_affected=1;
-}
-
 message DeleteProductRequest{
     string id=1;
 }
 
-message DeleteProductResponse{
-    int32 rows_affected=1;
-}
-
+message Empty{}
 
 
 

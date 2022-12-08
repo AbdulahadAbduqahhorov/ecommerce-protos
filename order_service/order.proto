@@ -47,6 +47,6 @@ message GetOrderByIdResponse{
     string customer_name = 2;
     string customer_address = 3;
     string customer_phone = 4;
-    repeated OrderItem orderitems=4;
+    repeated OrderItem orderitems=5;
 }
 

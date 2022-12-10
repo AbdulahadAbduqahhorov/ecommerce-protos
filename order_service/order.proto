@@ -44,11 +44,23 @@ message GetOrderByIdRequest{
     string id=1;
 }
 message GetOrderByIdResponse{
-    string id = 1;
-    string customer_name = 2;
-    string customer_address = 3;
-    string customer_phone = 4;
-    int32 total_price=5;
-    repeated OrderItem orderitems=6;
+    Order order=1;
+    message Items{
+        message Product{
+            string id=1;  
+            string title=2;
+            string desc=3;
+            int32 quantity=4;
+            int32 price=5;
+            string category_id=6;
+        }
+        Product product=1;
+        int32 quantity=2;
+    }
+    repeated Items items=2;
 }
 
+message OrderInfo{
+    Order order=1;
+    repeated OrderItem orderitems=2;
+}

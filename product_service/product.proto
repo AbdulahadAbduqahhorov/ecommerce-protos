@@ -38,7 +38,7 @@ message GetProductListRequest{
     int32 offset=2;
     string search=3;
     string category_id=4;
-
+    string order_by=5;
 }
 
 message GetProductListResponse{

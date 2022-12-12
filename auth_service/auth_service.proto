@@ -7,6 +7,7 @@ option go_package="./auth_service";
 service AuthService {
     rpc CreateAdmin(CreateAdminRequest) returns (Admin) {}
     rpc GetAdminList (GetAdminListRequest) returns (GetAdminListResponse){}
+    rpc UpdateAdmin (UpdateAdminRequest) returns (Admin){}
     rpc GetAdminById (GetAdminByIdRequest) returns (Admin){}
     rpc DeleteAdmin (DeleteAdminRequest) returns (Empty){}
 

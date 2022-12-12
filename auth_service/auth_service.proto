@@ -50,6 +50,7 @@ message CreateUserRequest {
     string phone=3;
     string email=4;
     string password=5;
+    string user_type=6;
 }
 
 message GetUserListRequest{

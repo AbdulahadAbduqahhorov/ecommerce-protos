@@ -20,7 +20,6 @@ service AuthService {
     rpc HasAccess (TokenRequest) returns (HasAccessResponse){}
 }
 message Empty{}
-username
 message LoginRequest{
     string login=1;
     string password=2;

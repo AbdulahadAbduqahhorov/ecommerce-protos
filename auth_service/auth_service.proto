@@ -2,6 +2,7 @@ syntax="proto3";
 
 package genproto;
 option go_package="./auth_service";
+import "google/protobuf/empty.proto";
 
 
 service AuthService {
@@ -9,13 +10,13 @@ service AuthService {
     rpc GetUserList (GetUserListRequest) returns (GetUserListResponse){}
     rpc GetUserById (GetUserByIdRequest) returns (User){}
     rpc UpdateUser (UpdateUserRequest) returns (User){}
-    rpc DeleteUser (DeleteUserRequest) returns (Empty){}
+    rpc DeleteUser (DeleteUserRequest) returns (google.protobuf.Empty){}
 
     rpc Register(RegisterUserRequest) returns (User) {}
     rpc Login (LoginRequest) returns (TokenResponse){}
     rpc HasAccess (TokenRequest) returns (HasAccessResponse){}
 }
-message Empty{}
+
 message LoginRequest{
     string login=1;
     string password=2;

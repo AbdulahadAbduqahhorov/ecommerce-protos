@@ -2,13 +2,13 @@ syntax="proto3";
 
 option go_package="./product_service";
 package genproto;
-
+import "google/protobuf/empty.proto";
 service ProductService {
     rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
     rpc GetProductList (GetProductListRequest) returns (GetProductListResponse){}
     rpc GetProductById (GetProductByIdRequest) returns (GetProductByIdResponse){}
     rpc UpdateProduct (UpdateProductRequest) returns (Product){}
-    rpc DeleteProduct (DeleteProductRequest) returns (Empty){}
+    rpc DeleteProduct (DeleteProductRequest) returns (google.protobuf.Empty){}
 }
 
 message Product {
@@ -80,9 +80,6 @@ message UpdateProductRequest{
 message DeleteProductRequest{
     string id=1;
 }
-
-message Empty{}
-
 
 
 

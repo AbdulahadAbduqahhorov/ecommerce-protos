@@ -37,9 +37,11 @@ message GetOrderListRequest{
     int32 limit=1;
     int32 offset=2;
     string search=3;
+    string user_id=4;
 }
 message GetOrderListResponse{
     repeated Order orders=1;
+    int32 count=2;
 }
 
 message GetOrderByIdRequest{

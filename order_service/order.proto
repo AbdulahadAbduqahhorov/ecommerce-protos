@@ -46,6 +46,7 @@ message GetOrderListResponse{
 
 message GetOrderByIdRequest{
     string id=1;
+    string user_id=2;
 }
 message GetOrderByIdResponse{
     Order order=1;
